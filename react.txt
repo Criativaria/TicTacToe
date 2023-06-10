@@ -1,0 +1,34 @@
+npm create vite@latest -> criando um tamplate vite 
+nmp i -> instala tudo para o react
+npm run dev -> abre o servidor
+
+
+ideia de código para login e etc:
+let content;
+if (isLoggedIn) {
+  content = <AdminPanel />;
+} else {
+  content = <LoginForm />;
+}
+return (
+  <div>
+    {content}
+  </div>
+);
+
+nome do arquivo = nome do componente
+
+
+ja cria e exporta o componente
+export default function ShoppingList() {
+
+<> </> => fragmento 
+ Quando vc quer retornar mais de um item e não tem um elemento pai
+importa do react
+
+
+vc pode usar '{}' e dai dentro disso vc ta em um ambiente JS e se vc usar '()' vc abre um ambiente HTML isso pode virar um ciclo infinito
+
+ o Hook de setState aceita tb um callback igual esse setButtonCount( (prev) => {logica qualquer;return prev+1;} ); onde vc recebe prev como o ultimo valor que ou foi atribuido no seu estado ou que ainda não foi mas que ainda vai ser
+
+ o pronto de entrada do codigo no react em sempre no createRoot
