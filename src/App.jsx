@@ -2,9 +2,6 @@ import React, { Fragment } from "react";
 import { useState } from "react";
 import "./styles.css";
 
-
-
-
  function Board({xIsNext, squares, onPlay}) {
 
   function handleClick(i) {
@@ -26,43 +23,46 @@ import "./styles.css";
 
   if (winner) {
     status =  winner + " Ganhou!";
-  } else {
-    status = "Próximo jogador: " + (xIsNext ? "X" : "O");
   }
 
   function Square({ value, onSquareClick }) {
 
     return (
-      <button className="square"  onClick={onSquareClick}>{value}</button>
+      <button className="square" maxLength={1}
+      onClick={onSquareClick}>{value}</button>
     );
     
   }
    
   return (
     <Fragment>
-      
-        <div className="board-status">
-          <div className="status">{ status }</div>
-            <div className="board" >
-          <div className="board-div" style={{ '--mark-text': '4' }}>
-                <div className="board-row" >
-                <Square value={squares[0]} onSquareClick={() => handleClick(0)}/>
-                <Square value={squares[1]} onSquareClick={() => handleClick(1)}/>
-                <Square value={squares[2]} onSquareClick={() => handleClick(2)}/>
-                </div>
-                <div className="board-row">
-                <Square value={squares[3]} onSquareClick={() => handleClick(3)}/>
-                <Square value={squares[4]} onSquareClick={() => handleClick(4)}/>
-                <Square value={squares[5]} onSquareClick={() => handleClick(5)}/>
-                </div>
-                <div className="board-row">
-                <Square value={squares[6]} onSquareClick={() => handleClick(6)}/>
-                <Square value={squares[7]} onSquareClick={() => handleClick(7)}/>
-                <Square value={squares[8]} onSquareClick={() => handleClick(8)}/>
-                </div>
-              </div>
-          </div>
+      <div className="todo">
+        <h1 className="titulo">TicTacToe</h1>
+          <div className="board-status">
+            <h2 className="status">{status}</h2>
+              <div className="board" >
+                <div className="board-div" style={{ '--mark-text': `'${xIsNext ? "X" : "O"}'` }}>
+                    <div className="board-row" >
+                    <Square value={squares[0]} onSquareClick={() => handleClick(0)}/>
+                    <Square value={squares[1]} onSquareClick={() => handleClick(1)}/>
+                    <Square value={squares[2]} onSquareClick={() => handleClick(2)}/>
+                    </div>
+                    <div className="board-row">
+                    <Square value={squares[3]} onSquareClick={() => handleClick(3)}/>
+                    <Square value={squares[4]} onSquareClick={() => handleClick(4)}/>
+                    <Square value={squares[5]} onSquareClick={() => handleClick(5)}/>
+                    </div>
+                    <div className="board-row">
+                    <Square value={squares[6]} onSquareClick={() => handleClick(6)}/>
+                    <Square value={squares[7]} onSquareClick={() => handleClick(7)}/>
+                    <Square value={squares[8]} onSquareClick={() => handleClick(8)}/>
+                    </div>
+                  </div>
+            </div>
         </div>
+        <a href="https://www.twitch.tv/criativaria" target="_blank" className="logo"><img src="https://ik.imagekit.io/hp5za42qc/logo__1_.png?updatedAt=1686460889203" /></a>
+      </div>
+     
     </Fragment>
   ) 
 }
@@ -120,7 +120,7 @@ export default function Game() {
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
-        <ol>{moves}</ol>
+        <ol className="ol">{moves}</ol>
       </div>
     </div>
 
